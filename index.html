@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dialog-styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Expense Tracker</h1>
+        <nav>
+            <a href="expense_list.html">Expense List</a>
+            <a href="expense_chart.html">Expense Chart</a>
+            <a href="#" id="logout-link" type="button">Logout</a>
+        </nav>
+    </header>
+    <!-- Main Section -->
+    <main>
+        <!-- Account Balance in White Container -->
+        <div class="shared-container account-balance-container">
+            <h2>Account Balance</h2>
+            <p id="budget-amount">Rs. 0.00</p>
+        </div>
+        <!-- Money Credited Form -->
+        <div class="shared-container credit-form-container">
+            <h2>Money Credited</h2>
+            <form id="credit-form">
+                <input type="text" id="credit-description" placeholder="Enter description (e.g., Salary, Bonus)"
+                    required />
+                <input type="number" id="credit-amount" placeholder="Enter amount to credit" required />
+                <input type="date" id="credit-date" required />
+                <button type="submit" id="credit-btn">Add Money</button>
+            </form>
+        </div>
+        <!-- Add Expense Form -->
+        <section class="add-expense-section">
+            <h2>Add Expense</h2>
+            <form id="add-expense-form">
+                <input type="number" id="expense-amount" placeholder="Amount" required>
+                <input type="text" id="expense-description" placeholder="Description" required>
+                <input type="date" id="expense-date" required>
+                <select id="expense-category" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="education">Education</option>
+                    <option value="others">Others</option>
+                </select>
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+        <!-- Expense Summary by Category -->
+        <section class="expense-summary-section">
+            <h2>Expense Summary by Category</h2>
+            <table id="expense-summary-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Expense</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Food</td>
+                        <td id="food-expense">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td id="transport-expense">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Utilities</td>
+                        <td id="utilities-expense">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Entertainment</td>
+                        <td id="entertainment-expense">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Education</td>
+                        <td id="education-expense">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td id="others-expense">$0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Expense Tracker</p>
+    </footer>
+    <div id="custom-dialog" class="dialog-container hidden">
+        <div class="dialog-box">
+            <h2 id="dialog-title"></h2>
+            <p id="dialog-message"></p>
+            <input type="text" id="dialog-input" class="hidden" />
+            <div class="dialog-buttons">
+                <button id="dialog-ok">OK</button>
+                <button id="dialog-cancel" class="hidden">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="toast-message" class="toast hidden"></div>
+    <!-- Include the JavaScript file -->
+    <script src="js/dialog.js"></script>
+
+    <!-- JavaScript Resources -->
+    <script src="js/firebase.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
